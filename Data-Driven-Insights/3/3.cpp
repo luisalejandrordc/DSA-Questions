@@ -36,7 +36,7 @@ public:
                             : mediums.back();
   }
 
-  // Time complexity: O(log(m + n))
+  // Time complexity: O(log(min(m, n)))
   double sol2(vector<int> &nums1, vector<int> &nums2) {
     if (nums1.size() > nums2.size())
       return sol2(nums2, nums1);
