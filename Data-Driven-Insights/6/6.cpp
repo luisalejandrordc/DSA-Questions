@@ -13,15 +13,26 @@ using namespace std;
 // }
 
 // Clever Method (Time Complexity O(n))
+// int maxProfit(const vector<int> &prices) {
+//   int p = 0;
+//   int maxPro = 0;
+//   for (int i = 1; i < prices.size(); i++) {
+//     int pro = prices[i] - prices[p];
+//     if (pro < 0)
+//       p = i;
+//     else
+//       maxPro = max(maxPro, pro);
+//   }
+//   return maxPro;
+// }
+
+// Cleaner Code Method
 int maxProfit(const vector<int> &prices) {
-  int p = 0;
   int maxPro = 0;
-  for (int i = 1; i < prices.size(); i++) {
-    int pro = prices[i] - prices[p];
-    if (pro < 0)
-      p = i;
-    else
-      maxPro = max(maxPro, pro);
+  int lowPri = prices[0];
+  for (int price : prices) {
+    lowPri = min(lowPri, price);
+    maxPro = max(maxPro, price - lowPri);
   }
   return maxPro;
 }
